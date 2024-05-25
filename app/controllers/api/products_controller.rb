@@ -28,10 +28,24 @@ module Api
     end
 
     def index 
-        @products = Product.order(created_at: :desc)
+        @products = Product.order(created_at: :desc) #asc
         render json: @products
     end
-    
+
+    def show
+        @product = Product.find(params[:id])
+        render json: @product
+    end
+
+    # def index 
+    #     @products = Product.where(name: "iPhone 15")
+    #     render json: @products
+    # end 
+
+    # def index 
+    #     @products = Product.where(name=?,  "iPhone 15")
+    #     render json: @products
+    # end 
 
     def product_params
         params.require(:product).permit(:name, :price, :description, :quantity)
