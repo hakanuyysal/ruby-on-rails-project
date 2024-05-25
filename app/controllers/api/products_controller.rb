@@ -12,6 +12,12 @@ module Api
         render json: @product
     end 
 
+    def destroy 
+        @product = Product.find(params[:id])
+        @product.destroy
+        render json: @product
+    end
+
     def product_params
         params.require(:product).permit(:name, :price, :description, :quantity)
      end 
