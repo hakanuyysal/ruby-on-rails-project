@@ -10,7 +10,7 @@ module Api
         @product = Product.find(params[:id])
         @product.update(product_params)
         render json: @product
-    end
+    end 
 
     def product_params
         params.require(:product).permit(:name, :price, :description, :quantity)
