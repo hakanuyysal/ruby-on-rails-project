@@ -17,6 +17,10 @@ module Api
         @product.destroy
         render json: @product
     end
+    def index
+        @products = Product.all
+        render json: @products
+    end
 
     def product_params
         params.require(:product).permit(:name, :price, :description, :quantity)
