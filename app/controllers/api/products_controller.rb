@@ -18,9 +18,20 @@ module Api
         render json: @product
     end
     def index
-        @products = Product.all
+        @products = Product.all #değişkeni çoğul yap çünkü tüm ürünler göstermek için
         render json: @products
     end
+
+    def index 
+        @product = Product.find(params[:id])
+        render json: @product
+    end
+
+    def index 
+        @products = Product.order(created_at: :desc)
+        render json: @products
+    end
+    
 
     def product_params
         params.require(:product).permit(:name, :price, :description, :quantity)
