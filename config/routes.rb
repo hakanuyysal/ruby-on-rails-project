@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace 'api' do
     resources :products
+    resources :categories
   end
 end
